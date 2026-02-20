@@ -27,3 +27,21 @@ Dev branch
 Main branch
 | Run release workflow on merge
 References are updated and commit is tagged
+
+Link to Our Revisit Study: https://weavergoldman.com/a3-study/
+Our experiment was to determine whether it was easier or more difficult to identify the month with the highest average for a line graph or colorfield. Each graph was permuted 20 times for a total of 40 graphs per experiment.
+An example of each type of graph can be found below:
+
+Line Graph
+<img width="1517" height="637" alt="image" src="https://github.com/user-attachments/assets/5703353c-c852-4178-b3dd-a485bad0b65a" />
+
+Technical Achievements:
+- Use of React to display graphs
+- Using python for data analysis
+- Generating permuted graphs
+
+Design Achievements:
+- Two different graph types: Colorfield and Line Graph
+
+Colorfield
+<img width="1546" height="382" alt="image" src="https://github.com/user-attachments/assets/3a073924-6bf1-49db-85eb-04e2d0f148f4" />
