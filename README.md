@@ -46,7 +46,7 @@ We used mixed logistical regression with BinomialBayesMixedGLM to analyze our da
 We also calculated the emperical mean and bootstrapped 95% confidence intervals to get upper and lower error bounds. This is shown in our result figure via the black error bars. 
 Using these two different ways of calculating error helps us report confidence in our findings. We used these metrics instead of average log2Error or Cleveland and McGill’s log-base-2 error because of binary true/false responses of whether our participants had guessed the correct month. We don’t have continuous values that allow for calculating how wrong participants were because they were either right or wrong and therefore, it doesn't make sense to use these two ways of calculating error. 
 
-<img width="1546" height="382" alt="results" src="" />
+<img width="790" height="588" alt="analysis_results" src="https://github.com/user-attachments/assets/88c589e1-ba7f-47c0-865b-20ee67ab4a7e" />
 
 | chart_type   | permuted  | mean_accuracy | ci_lower | ci_upper | predicted_probability | sd_probability |
 |-------------|-----------|---------------|----------|----------|----------------------|----------------|
