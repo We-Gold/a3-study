@@ -1,37 +1,22 @@
-# reVISit study – Interactive, Web-Based User Studies. 
+# A3-Study
 
-AI Usage Note: Right now, we have a few sample plot components in the config. These are loading the data directly. For the study, what we want to do is to show 20 line charts, and 20 colorfields. Half of each are permuted. The data file should be referenced for this purpose. Can you come up with a plan for how to adapt our current code for the full study setup?
-
-Create your own interactive, web-based data visualization user studies by cloning/forking and editing configuration files and adding stimuli in the `public` folder. 
-
-reVISit introduces reVISit.spec a DSL for specifying study setups (consent forms, training, trials, etc) for interactive web based studies. You describe your experimental setup in reVISit.spec, add your stimuli as images, forms, html pages, or React components, build and deploy – and you're ready to run your study. For tutorials and documentation, see the [reVISit website](https://revisit.dev). 
-
-## Build Instructions
-
-To run this demo experiment locally, you will need to install node on your computer. 
-
-* Clone `https://github.com/revisit-studies/study`
-* Run `yarn install`. If you don't have yarn installed, run `npm i -g yarn`. 
-* To run locally, run `yarn serve`.
-* Go to [http://localhost:8080](http://localhost:8080) to view it in your browser. The page will reload when you make changes. 
-
-## Release Instructions
-
-Releasing reVISit.dev happens automatically when a PR is merged into the `main` branch. The name of the pull request should be the title of the release, e.g. `v1.0.0`. Releasing creates a tag with the same name as the PR, but the official GitGub release should be created manually. The `main` branch is protected and requires two reviews before merging.
-
-The workflow for release looks as follows:
-Develop features on feature branch
-| PRs
-Dev branch
-| PR (1 per release)
-Main branch
-| Run release workflow on merge
-References are updated and commit is tagged
-
+See [AI_USAGE_NOTES.md](AI_USAGE_NOTES.md) for notes on how we used AI in this project.
 
 ## Experiment Setup
 Link to Our Revisit Study: https://weavergoldman.com/a3-study/
-Our experiment was to determine whether it was easier or more difficult to identify the month with the highest average for a line graph or colorfield, and for the ordered or permuted versions of each. Each graph was permuted 20 times for a total of 40 graphs per experiment.
+
+Our experiment was to determine whether it was easier or more difficult to identify the month with the highest average in a time series dataset with a line graph or colorfield, and for the ordered or permuted versions of each. 
+
+Each user sees 20 line graphs and 20 colorfields, with half of each being permuted. The data for these graphs is generated with a random winning month for each, and the following parameters:
+
+Parameter | Value
+--- | ---
+k (# distractor months) | 4
+d (difficulty) | 2
+noise_level | 2
+
+We randomized the overall order of the graphs for each user.
+
 An example of each type of graph can be found below:
 
 Line Graph
