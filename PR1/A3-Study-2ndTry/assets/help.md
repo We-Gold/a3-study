@@ -1,1 +1,0 @@
-**Task**: In the experiment, you will be shown a series of graphs representing time series data for different months. Each graph will display the average values for each day of the month. Your task is to identify which month has the highest average value based on the graphs provided.
