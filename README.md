@@ -62,6 +62,7 @@ Analysis of statistical significance:
 | chart_type[T.line chart]                       | 0.523           | 0.167    | [1.216, 2.34]    | < .001 |
 | permuted[T.permuted]                           | 0.460           | 0.189    | [1.094, 2.294]   | < .001 |
 | chart_type[T.line chart]:permuted[T.permuted]  | 1.322           | 0.236    | [2.362, 5.957]   | 0.237  |
+
 We have statistically signficant p-values showing that linecharts have lower accuracy than colorfields and permuted linecharts/colorfields have lower accuracy than their ordered counterparts.
 
 The experiment we are replicating described here https://dl.acm.org/doi/epdf/10.1145/2207676.2208556 also shows that colorfields have a higher mean correctness than line graphs. Their results for permuted versus order charts differs from ours, however, we also generated our permuted charts differently so they aren't a direct comparasion.
