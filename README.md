@@ -43,8 +43,11 @@ We also calculated the emperical mean and bootstrapped 95% confidence intervals 
 
 Using these two different ways of calculating error helps us report confidence in our findings. We used these metrics instead of average log2Error or Cleveland and McGill’s log-base-2 error because of binary true/false responses of whether our participants had guessed the correct month. We don’t have continuous values that allow for calculating how wrong participants were because they were either right or wrong and therefore, it doesn't make sense to use these two ways of calculating error. 
 
+We also used Generalized Estimating Equations to calculate p-values and see if our results were statistically significant. 
+
 <img width="790" height="588" alt="analysis_results" src="https://github.com/user-attachments/assets/88c589e1-ba7f-47c0-865b-20ee67ab4a7e" />
 
+Results:
 | chart_type   | permuted  | mean_accuracy | ci_lower | ci_upper | predicted_probability | sd_probability |
 |-------------|-----------|---------------|----------|----------|----------------------|----------------|
 | colorfield  | ordered   | 0.55          | 0.47     | 0.62     | 0.543                | 0.029          |
@@ -52,7 +55,16 @@ Using these two different ways of calculating error helps us report confidence i
 | line graph  | ordered   | 0.39          | 0.31     | 0.46     | 0.371                | 0.048          |
 | line graph  | permuted  | 0.28          | 0.21     | 0.36     | 0.224                | 0.064          |
 
-This successfully replicated the experiment from https://dl.acm.org/doi/epdf/10.1145/2207676.2208556 which shows that colorfields have a higher mean correctness than line graphs.
+Analysis of statistical significance:
+| Term                                           | Beta (log-odds) | Std.Err. | 95% CI           | p      |
+|------------------------------------------------|-----------------|----------|------------------|--------|
+| Intercept                                      | 1.222           | 0.154    | [2.51, 4.59]     | 0.192  |
+| chart_type[T.line chart]                       | 0.523           | 0.167    | [1.216, 2.34]    | < .001 |
+| permuted[T.permuted]                           | 0.460           | 0.189    | [1.094, 2.294]   | < .001 |
+| chart_type[T.line chart]:permuted[T.permuted]  | 1.322           | 0.236    | [2.362, 5.957]   | 0.237  |
+We have statistically signficant p-values showing that linecharts have lower accuracy than colorfields and permuted linecharts/colorfields have lower accuracy than their ordered counterparts.
+
+The experiment we are replicating described here https://dl.acm.org/doi/epdf/10.1145/2207676.2208556 also shows that colorfields have a higher mean correctness than line graphs. Their results for permuted versus order charts differs from ours, however, we also generated our permuted charts differently so they aren't a direct comparasion.
 
 The clean data can be found in `data/clean_data.csv`.
 
@@ -65,6 +77,7 @@ The clean data can be found in `data/clean_data.csv`.
 - Processed tidy csv output from reVISit to create a clean dataframe for analysis.
 - Used a mixed logistical regression model to analyze our data and get the predicted probability and standard deviation of the trial results.
 - Used bootstrapping to calculate the emperical mean and 95% confidence intervals for our data.
+- Used Generalized Estimating Equations to calculate p-values.
 
 ## Design Achievements:
 - Two different graph types: Colorfield and Line Graph
