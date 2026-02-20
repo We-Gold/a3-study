@@ -74,6 +74,9 @@ The clean data can be found in `data/clean_data.csv`.
     - Ordered: The data points are arranged in chronological order.
     - Permuted: The data points are randomly arranged within each month. The goal is to make the graph seem more uniform in each month.
 - Plotted results in a bar graph to show both ordered and permuted results for both line graphs and colorfields, with two types of error bars. 
+- Used a red and blue color scheme to make sure the colors were easily distinguishable for all users, including those with color blindness.
+- Minimized distracting elements in the graphs to make sure that the only thing participants were focusing on was the data itself.
+- Added bars to the graphs to indicate the bounds of each month to make it easier for participants to identify the mean of each month.
 
 ## Observations:
 - While conducting the study, one participant mentioned that they percieved the dark red (more intense colors) as much more intense than the lighter colors, adding that they expected the difference between dark red and light red to be much larger than it was. 
