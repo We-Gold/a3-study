@@ -63,9 +63,11 @@ Analysis of statistical significance:
 | permuted[T.permuted]                           | 0.460           | 0.189    | [1.094, 2.294]   | < .001 |
 | chart_type[T.line chart]:permuted[T.permuted]  | 1.322           | 0.236    | [2.362, 5.957]   | 0.237  |
 
-We have statistically signficant p-values showing that linecharts have lower accuracy than colorfields and permuted linecharts/colorfields have lower accuracy than their ordered counterparts.
+Descriptive statistics show that colorfields had higher mean accuracy than line graphs, both when ordered and permuted. Specifically, ordered colorfields achieved a mean accuracy of 55% (95% CI: 0.47–0.62), while ordered line graphs achieved a lower mean accuracy of 39% (95% CI: 0.31–0.46). Permutation reduced accuracy for both chart types, with permuted colorfields at 36% (95% CI: 0.31–0.41) and permuted line graphs at 28% (95% CI: 0.21–0.36).
 
-The experiment we are replicating described here https://dl.acm.org/doi/epdf/10.1145/2207676.2208556 also shows that colorfields have a higher mean correctness than line graphs. Their results for permuted versus order charts differs from ours, however, we also generated our permuted charts differently so they aren't a direct comparasion.
+According to our logistic regression analysis, chart type and permutation were both significant predictors of accuracy: line charts had lower odds of being answered correctly compared to colorfields (β = 0.523, p < 0.001), and permuted charts had lower odds than ordered charts (β = 0.460, p < 0.001). The interaction between chart type and permutation was not statistically significant (β = 1.322, p = 0.237), suggesting that the effect of permutation on accuracy did not differ consistently between chart types.
+
+These results are consistent with previous findings (https://dl.acm.org/doi/epdf/10.1145/2207676.2208556) showing that colorfields tend to enable higher accuracy than line graphs. While the effect of permutation in our study differs from that in the original experiment, likely due to differences in how permuted charts were generated, the overall pattern indicates that both chart type and data ordering influence participant performance.
 
 The clean data can be found in `data/clean_data.csv`.
 
