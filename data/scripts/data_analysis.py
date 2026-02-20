@@ -3,6 +3,8 @@ import pandas as pd
 from statsmodels.genmod.bayes_mixed_glm import BinomialBayesMixedGLM
 import matplotlib.pyplot as plt
 import seaborn as sns
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
 
 def load_data():
     df = pd.read_csv("../clean_data.csv")
@@ -195,6 +197,53 @@ def plot_accuracy_bars(summary_df, show_model=True):
     plt.show()
 
 
+def format_p(p):
+    if p < 0.001:
+        return "< .001"
+    elif p < 0.01:
+        return f"{p:.3f}**"
+    elif p < 0.05:
+        return f"{p:.3f}*"
+    else:
+        return f"{p:.3f}"
+
+def compute_statistical_significance(df):
+    model = smf.gee(
+        "is_correct ~ chart_type * permuted",
+        groups="participant_id",
+        data=df,
+        family=sm.families.Binomial()
+    )
+    result = model.fit()
+
+    summary_df = result.summary2().tables[1].copy()
+    
+    summary_df = summary_df.rename(columns={
+        "Coef.": "Beta (log-odds)",
+        "P>|z|": "p"
+    })
+
+    summary_df["Beta (log-odds)"] = np.exp(summary_df["Beta (log-odds)"]).round(3)
+    summary_df["Std.Err."] = summary_df["Std.Err."].round(3)
+    summary_df["95% CI"] = (
+        "[" +
+        np.exp(summary_df["Beta (log-odds)"] - 1.96 * summary_df["Std.Err."]).round(3).astype(str) +
+        ", " +
+        np.exp(summary_df["Beta (log-odds)"] + 1.96 * summary_df["Std.Err."]).round(3).astype(str) +
+        "]"
+    )
+    summary_df["p"] = summary_df["p"].apply(format_p)
+
+    final_table = summary_df[[
+        "Beta (log-odds)",
+        "Std.Err.",
+        "95% CI",
+        "p"
+    ]]
+
+    print(final_table)
+
+
 if __name__ == "__main__":
     df = load_data()
 
@@ -213,4 +262,6 @@ if __name__ == "__main__":
     print(summary_df)
 
     plot_accuracy_bars(summary_df)
+
+    compute_statistical_significance(df)
     
