@@ -28,20 +28,42 @@ Main branch
 | Run release workflow on merge
 References are updated and commit is tagged
 
+
+## Experiment Setup
 Link to Our Revisit Study: https://weavergoldman.com/a3-study/
-Our experiment was to determine whether it was easier or more difficult to identify the month with the highest average for a line graph or colorfield. Each graph was permuted 20 times for a total of 40 graphs per experiment.
+Our experiment was to determine whether it was easier or more difficult to identify the month with the highest average for a line graph or colorfield, and for the ordered or permuted versions of each. Each graph was permuted 20 times for a total of 40 graphs per experiment.
 An example of each type of graph can be found below:
 
 Line Graph
-<img width="1517" height="637" alt="image" src="https://github.com/user-attachments/assets/5703353c-c852-4178-b3dd-a485bad0b65a" />
-
-Technical Achievements:
-- Use of React to display graphs
-- Using python for data analysis
-- Generating permuted graphs
-
-Design Achievements:
-- Two different graph types: Colorfield and Line Graph
+<img width="1517" height="637" alt="line graph" src="https://github.com/user-attachments/assets/5703353c-c852-4178-b3dd-a485bad0b65a" />
 
 Colorfield
-<img width="1546" height="382" alt="image" src="https://github.com/user-attachments/assets/3a073924-6bf1-49db-85eb-04e2d0f148f4" />
+<img width="1546" height="382" alt="colorfield" src="https://github.com/user-attachments/assets/3a073924-6bf1-49db-85eb-04e2d0f148f4" />
+
+
+## Data Analysis
+We used mixed logistical regression with BinomialBayesMixedGLM to analyze our data because it has a binary outcome as opposed to a continous value. We use this to get the predicted probability and standard deviation of the trial results. This is shown in our results figure via the red model prediction dot and line. 
+We also calculated the emperical mean and bootstrapped 95% confidence intervals to get upper and lower error bounds. This is shown in our result figure via the black error bars. 
+Using these two different ways of calculating error helps us report confidence in our findings. We used these metrics instead of average log2Error or Cleveland and McGill’s log-base-2 error because of binary true/false responses of whether our participants had guessed the correct month. We don’t have continuous values that allow for calculating how wrong participants were because they were either right or wrong and therefore, it doesn't make sense to use these two ways of calculating error. 
+
+<img width="1546" height="382" alt="results" src="" />
+
+| chart_type   | permuted  | mean_accuracy | ci_lower | ci_upper | predicted_probability | sd_probability |
+|-------------|-----------|---------------|----------|----------|----------------------|----------------|
+| colorfield  | ordered   | 0.55          | 0.47     | 0.62     | 0.543                | 0.029          |
+| colorfield  | permuted  | 0.36          | 0.31     | 0.41     | 0.341                | 0.046          |
+| line graph  | ordered   | 0.39          | 0.31     | 0.46     | 0.371                | 0.048          |
+| line graph  | permuted  | 0.28          | 0.21     | 0.36     | 0.224                | 0.064          |
+
+This successfully replicated the experiment from https://dl.acm.org/doi/epdf/10.1145/2207676.2208556 which shows that colorfields have a higher mean correctness than line graphs.
+
+
+## Technical Achievements:
+- Generated data to make graphs with a winning month, some number of distracter months, and some noise level to generate a diverse data set to run our experiment.
+- Generating permuted graphs for both line graphs and colorfields.
+- Use of React to display graphs.
+- Using python libraries pandas, statsmodels, matplotlib, and seaborn for data analysis to calculate two different error metrics and plot our results.
+
+## Design Achievements:
+- Two different graph types: Colorfield and Line Graph
+- Plotted results in a bar graph to show both ordered and permuted results for both line graphs and colorfields, with two types of error bars. 
