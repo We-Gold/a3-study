@@ -46,6 +46,7 @@ Using these two different ways of calculating error helps us report confidence i
 
 This successfully replicated the experiment from https://dl.acm.org/doi/epdf/10.1145/2207676.2208556 which shows that colorfields have a higher mean correctness than line graphs.
 
+The clean data can be found in `data/clean_data.csv`.
 
 ## Technical Achievements:
 - Generated data to make graphs with a winning month, some number of distracter months, and some noise level to generate a diverse data set to run our experiment.
