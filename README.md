@@ -72,8 +72,9 @@ The clean data can be found in `data/clean_data.csv`.
 ## Technical Achievements:
 - Generated data to make graphs with a winning month, some number of distracter months, and some noise level to generate a diverse data set to run our experiment.
     - Used perlin noise to generate smooth noise for our data, which is more realistic and complex than the underlying step function that creates each time series.
+    - Used cubic splines to create smoother time series data from the original noise and step function data.
 - Generating permuted graphs for both line graphs and colorfields.
-- Use of React to display graphs.
+- We used d3 within React components to create our line graphs and colorfields, while the data was pre-generated with python. The config file dynamically references different data series in the data file to create the different graphs.
 - Using python libraries pandas, statsmodels, matplotlib, and seaborn for data analysis to calculate two different error metrics and plot our results.
 - Processed tidy csv output from reVISit to create a clean dataframe for analysis.
 - Used a mixed logistical regression model to analyze our data and get the predicted probability and standard deviation of the trial results.
