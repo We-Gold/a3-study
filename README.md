@@ -21,11 +21,19 @@ We randomized the overall order of the graphs for each user.
 
 An example of each type of graph can be found below:
 
-Line Graph
-<img width="1517" height="637" alt="line graph" src="https://github.com/user-attachments/assets/5703353c-c852-4178-b3dd-a485bad0b65a" />
+Line Graph Non Permuted
+<img width="1543" height="638" alt="image" src="https://github.com/user-attachments/assets/7d63babb-4742-41eb-b444-9621e456f878" />
 
-Colorfield
-<img width="1546" height="382" alt="colorfield" src="https://github.com/user-attachments/assets/3a073924-6bf1-49db-85eb-04e2d0f148f4" />
+Line Graph Permuted
+<img width="1535" height="647" alt="image" src="https://github.com/user-attachments/assets/833748bb-cc13-4353-a6f7-34f959dfa3e7" />
+
+
+Colorfield Non Permuted
+<img width="1559" height="374" alt="image" src="https://github.com/user-attachments/assets/e5b13139-36a7-4f63-9770-a185ae7b7681" />
+
+Colorfield Permuted
+<img width="1556" height="379" alt="image" src="https://github.com/user-attachments/assets/b2995d84-cbcf-4408-9ad6-872f87bec451" />
+
 
 
 ## Data Analysis
