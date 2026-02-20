@@ -4,6 +4,8 @@ See [AI_USAGE_NOTES.md](AI_USAGE_NOTES.md) for notes on how we used AI in this p
 
 ## Experiment Setup
 Link to Our Revisit Study: https://weavergoldman.com/a3-study/
+<img width="2560" height="1357" alt="image" src="https://github.com/user-attachments/assets/72f60e83-68c9-4ee1-bedd-ad4b3cd301bf" />
+
 
 Our experiment was to determine whether it was easier or more difficult to identify the month with the highest average in a time series dataset with a line graph or colorfield, and for the ordered or permuted versions of each. 
 
