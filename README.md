@@ -67,5 +67,7 @@ This successfully replicated the experiment from https://dl.acm.org/doi/epdf/10.
 - Plotted results in a bar graph to show both ordered and permuted results for both line graphs and colorfields, with two types of error bars. 
 
 ## Observations:
+- While conducting the study, one participant mentioned that they percieved the dark red (more intense colors) as much more intense than the lighter colors, adding that they expected the difference between dark red and light red to be much larger than it was. 
+    - This observation suggests that the difference in color intensity may be percieved as much greater than the linear difference in corresponding values. To account for this, it may be helpful to scale the color intesity mapping so that it gets exponentially more intense as the values deviate from the center of the range.
 
 
